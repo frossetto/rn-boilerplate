@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Provider } from 'react-redux';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import configureStore from './redux';
+import Home from './views/Home/index';
 
-const App : Component = () => (
-  <View style={styles.container}>
-    <Text>Open up App.tsx to start working on your app!</Text>
-    <StatusBar />
-  </View>
+const store = configureStore();
+
+const App = () => (
+  <Provider store={store}>
+    <Home />
+  </Provider>
 );
 
 export default App;
